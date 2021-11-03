@@ -1,0 +1,33 @@
+{
+    "Download Directory": "/home/cleversom/Downloads",
+    "Document Directory": "/home/cleversom/Documents",
+    "Video Directory":    "/home/cleversom/Videos",
+    "Music Directory":    "/home/cleversom/Music",
+    "Imagens Directory":  "/home/cleversom/Pictures",
+    "code Directory":     "/home/cleversom/code/Download_Programs",
+
+
+    "imagens":    ["jpeg","jpg","img","svg","png","gif"],
+    "code":       ["py","cs","js","php","html","css","json","xml","java"],
+    "txt":        ["txt"],
+    "pdf":        ["pdf"],
+    "video":      ["mov","mp4","avi","flv"],
+    "documents":  ["docx","xlsx","doc","xls","odp","cop","pptx"],
+    "executable": ["deb"],
+    "zip":        ["zip","whl","iso","xz","gz"],
+    "3D":         ["stl","obj","FBX","3DS","igegs"],
+    "music":      ["mp3"],
+
+
+    "iconFoleder": ".local/share/file-organizer/icons/iconFolder.png",
+    "Activated_program": ".local/share/file-organizer/songs/Activated_program.mp3",
+    
+    "Xicon": ".local/share/file-organizer/icons/Xicon.png",
+    "ErroSong": ".local/share/file-organizer/songs/ErroSong.mp3",
+    
+    "FolderMove": ".local/share/file-organizer/icons/folderMove.png",
+    "movefileSong": ".local/share/file-organizer/songs/movefile.mp3",
+
+    "TurnOnUnknown": false
+
+}
