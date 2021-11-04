@@ -93,9 +93,6 @@ def main():
 
 #---------------------------------------------------------------->
 
-notifymeActivated()# avizar que o programa foi iniciado
-main() 
-
 try:
     notifymeActivated()# avizar que o programa foi iniciado
     main() # ativar programa
