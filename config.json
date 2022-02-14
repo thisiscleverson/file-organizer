@@ -1,10 +1,10 @@
 {
-    "Download Directory": "/home/cleversom/Downloads",
-    "Document Directory": "/home/cleversom/Documents",
-    "Video Directory":    "/home/cleversom/Videos",
-    "Music Directory":    "/home/cleversom/Music",
-    "Imagens Directory":  "/home/cleversom/Pictures",
-    "code Directory":     "/home/cleversom/code/Download_Programs",
+    "Download Directory": "Downloads",
+    "Document Directory": "Documents",
+    "Video Directory":    "Videos",
+    "Music Directory":    "Music",
+    "Imagens Directory":  "Pictures",
+    "code Directory":     "code/Download_Programs",
 
 
     "imagens":    ["jpeg","jpg","img","svg","png","gif"],
