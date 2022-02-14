@@ -101,25 +101,24 @@ def unknown(event):
 
 #----------------------------------------------------------------
 def make_folder(folderName,whatDirectory):
-
     if whatDirectory == 1: # Downloads
-        os.chdir(jsonList['Download Directory'])
+        os.chdir(username + jsonList['Download Directory'])
 
     elif whatDirectory == 2: # Documents
-        os.chdir(jsonList['Document Directory'])
+        os.chdir(username + jsonList['Document Directory'])
 
     elif whatDirectory == 3: # Imagens
-        os.chdir(jsonList['Imagens Directory'])
+        os.chdir(username + jsonList['Imagens Directory'])
 
     elif whatDirectory == 4: # video
-        os.chdir(jsonList['Video Directory'])
+        os.chdir(username + jsonList['Video Directory'])
 
     elif whatDirectory == 5: # code
-        os.chdir(jsonList['code Directory'])
+        os.chdir(username + jsonList['code Directory'])
 
     elif whatDirectory == 6: # music
-        os.chdir(jsonList['Music Directory'])
-
+        os.chdir(username + jsonList['Music Directory'])
+ 
 
     if os.path.exists(folderName) == True:
         print('Folder already exists, skipping creation')
