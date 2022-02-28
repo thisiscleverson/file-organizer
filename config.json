@@ -19,14 +19,14 @@
     "music":      ["mp3"],
 
     
-    "iconFoleder": "/file-organizer/icons/iconFolder.png",
-    "Activated_program": "/file-organizer/songs/Activated_program.mp3",
+    "iconFoleder": "/icons/iconFolder.png",
+    "Activated_program": "/songs/Activated_program.mp3",
     
-    "Erroicon": "/file-organizer/icons/Xicon.png",
-    "ErroSong": "/file-organizer/songs/ErroSong.mp3",
+    "Erroicon": "/icons/Xicon.png",
+    "ErroSong": "/songs/ErroSong.mp3",
     
-    "MoverFile": "/file-organizer/icons/folderMove.png",
-    "movefileSong": "/file-organizer/songs/movefile.mp3",
+    "MoverFile": "/icons/folderMove.png",
+    "movefileSong": "/songs/movefile.mp3",
 
     "TurnOnUnknown": false
 

@@ -6,7 +6,7 @@ import json
 
 usernameDirectory = os.path.expanduser("~/")
 username = os.path.dirname(os.path.abspath(""))
-Directory = username + '/file-organizer/config.json'
+Directory = username + '/config.json'
 
 
 def findDirectory():
