@@ -18,15 +18,15 @@
     "3D":         ["stl","obj","FBX","3DS","igegs"],
     "music":      ["mp3"],
 
-
-    "iconFoleder": ".local/share/file-organizer/icons/iconFolder.png",
-    "Activated_program": ".local/share/file-organizer/songs/Activated_program.mp3",
     
-    "Xicon": ".local/share/file-organizer/icons/Xicon.png",
-    "ErroSong": ".local/share/file-organizer/songs/ErroSong.mp3",
+    "iconFoleder": "/file-organizer/icons/iconFolder.png",
+    "Activated_program": "/file-organizer/songs/Activated_program.mp3",
     
-    "FolderMove": ".local/share/file-organizer/icons/folderMove.png",
-    "movefileSong": ".local/share/file-organizer/songs/movefile.mp3",
+    "Erroicon": "/file-organizer/icons/Xicon.png",
+    "ErroSong": "/file-organizer/songs/ErroSong.mp3",
+    
+    "MoverFile": "/file-organizer/icons/folderMove.png",
+    "movefileSong": "/file-organizer/songs/movefile.mp3",
 
     "TurnOnUnknown": false
 

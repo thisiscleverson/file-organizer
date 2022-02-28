@@ -5,7 +5,7 @@ from notices import *
 #--------------------#
 
 
-namefolder = jsonList['Download Directory'] #diretorio do arquivo em que deve ser observado se algumm arquivo foi adicionado
+namefolder = usernameDirectory + jsonList['Download Directory'] #diretorio do arquivo em que deve ser observado se algumm arquivo foi adicionado
 
 #----------------------------------------------------------------
 
@@ -93,9 +93,10 @@ def main():
 
 #---------------------------------------------------------------->
 
+notifymeActivated()# avizar que o programa foi iniciado
+main() # ativar programa
 try:
-    notifymeActivated()# avizar que o programa foi iniciado
-    main() # ativar programa
+    pass
 except:
     notifymeErro()# avizar que ouve erro
 

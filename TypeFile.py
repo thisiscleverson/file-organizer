@@ -2,11 +2,11 @@ import os
 import shutil
 import json
 
+#Directory = username + 'file-organizer/config.json'
 
-
-username = os.path.expanduser("~/")
-
-Directory = username + '.local/share/file-organizer/config.json'
+usernameDirectory = os.path.expanduser("~/")
+username = os.path.dirname(os.path.abspath(""))
+Directory = username + '/file-organizer/config.json'
 
 
 def findDirectory():
@@ -102,22 +102,22 @@ def unknown(event):
 #----------------------------------------------------------------
 def make_folder(folderName,whatDirectory):
     if whatDirectory == 1: # Downloads
-        os.chdir(username + jsonList['Download Directory'])
+        os.chdir(usernameDirectory + jsonList['Download Directory'])
 
     elif whatDirectory == 2: # Documents
-        os.chdir(username + jsonList['Document Directory'])
+        os.chdir(usernameDirectory + jsonList['Document Directory'])
 
     elif whatDirectory == 3: # Imagens
-        os.chdir(username + jsonList['Imagens Directory'])
+        os.chdir(usernameDirectory + jsonList['Imagens Directory'])
 
     elif whatDirectory == 4: # video
-        os.chdir(username + jsonList['Video Directory'])
+        os.chdir(usernameDirectory + jsonList['Video Directory'])
 
     elif whatDirectory == 5: # code
-        os.chdir(username + jsonList['code Directory'])
+        os.chdir(usernameDirectory + jsonList['code Directory'])
 
     elif whatDirectory == 6: # music
-        os.chdir(username + jsonList['Music Directory'])
+        os.chdir(usernameDirectory + jsonList['Music Directory'])
  
 
     if os.path.exists(folderName) == True:
