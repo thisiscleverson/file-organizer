@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/$USER/file-organizer/dist/File_Organizer
+Exec=./file-organizer/dist/File_Organizer
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
