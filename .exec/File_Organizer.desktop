@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/cleverson/file-organizer/dist/File_Organizer
+Exec=~/.local/share/file-organizer/dist/File_Organizer
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
