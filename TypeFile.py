@@ -4,9 +4,11 @@ import json
 
 #Directory = username + 'file-organizer/config.json'
 
-usernameDirectory = os.path.expanduser("~/")
-username = os.path.dirname(os.path.abspath(""))
-Directory = username + '/config.json'
+
+#username = os.path.dirname(os.path.abspath(""))
+
+username = os.path.expanduser("~/")
+Directory = username + 'file-organizer/config.json'
 
 
 def findDirectory():
@@ -102,22 +104,22 @@ def unknown(event):
 #----------------------------------------------------------------
 def make_folder(folderName,whatDirectory):
     if whatDirectory == 1: # Downloads
-        os.chdir(usernameDirectory + jsonList['Download Directory'])
+        os.chdir(username + jsonList['Download Directory'])
 
     elif whatDirectory == 2: # Documents
-        os.chdir(usernameDirectory + jsonList['Document Directory'])
+        os.chdir(username + jsonList['Document Directory'])
 
     elif whatDirectory == 3: # Imagens
-        os.chdir(usernameDirectory + jsonList['Imagens Directory'])
+        os.chdir(username + jsonList['Imagens Directory'])
 
     elif whatDirectory == 4: # video
-        os.chdir(usernameDirectory + jsonList['Video Directory'])
+        os.chdir(username + jsonList['Video Directory'])
 
     elif whatDirectory == 5: # code
-        os.chdir(usernameDirectory + jsonList['code Directory'])
+        os.chdir(username + jsonList['code Directory'])
 
     elif whatDirectory == 6: # music
-        os.chdir(usernameDirectory + jsonList['Music Directory'])
+        os.chdir(username + jsonList['Music Directory'])
  
 
     if os.path.exists(folderName) == True:

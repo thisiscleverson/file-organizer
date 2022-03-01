@@ -5,7 +5,7 @@ from notices import *
 #--------------------#
 
 
-namefolder = usernameDirectory + jsonList['Download Directory'] #diretorio do arquivo em que deve ser observado se algumm arquivo foi adicionado
+namefolder = username + jsonList['Download Directory'] #diretorio do arquivo em que deve ser observado se algumm arquivo foi adicionado
 
 #----------------------------------------------------------------
 
