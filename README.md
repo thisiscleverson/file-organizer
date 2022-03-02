@@ -46,14 +46,20 @@ Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://g
 		<p>
 			<img src="/src/assets/file-organizer-img.jpg">
 		</p>
-	2. execulte o comando:
+	2. abra o terminal e execulte o comando:
 		```
 		pyinstaller --onefile --noconsole File_Organizer.py
 		```
+		<p>
+			<img src="/src/assets/terminal.jpg">
+		</p>
 	3. abra o aplicativo <strong>startup applications</strong> e adicione o programa no diretorio 
 		```
 		./file-organizer/dist/File_Organizer
 		```
+		<p>
+			<img src="/src/assets/.jpg">
+		</p>
 	4. reinicie sua máquina.
 	
 
