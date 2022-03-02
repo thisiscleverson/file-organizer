@@ -1,6 +1,6 @@
 <h1>File organizer</h1>
  
- ---
+ 
  
  File organizer é um software organizador da pasta de Download.
 Foi desenvolvido com o intuito de organizar os arquivo abaixados, organizando para um diretório apropriado.
@@ -10,9 +10,46 @@ Foi desenvolvido com o intuito de organizar os arquivo abaixados, organizando pa
 
 - Este programa foi desenvolvido para sistema linux. Testado em <strong>Ubuntu, Pop_os, Linux Mint</strong>. Tendo como base de fucionamento o <strong>Debian.</strong>
 
- ----
+----
  
- 
- 
+<h2>Instalação</h2>
+
+Para poder execultar o programa na sua máquina é necessário ter instalado certas bibliotecas para um funcionamento correto.
+
+Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://github.com/thisiscleverson/installer-fileOrginazer.git">instalador.</a>
+
+-  instalando as bibliotecas do programa.
+ ```
+ pip3 install notify2
+ ```
+
+```
+ pip3 install pyinotify
+```
+
+```
+ pip3 install playsound
+```
+
+- instalando o pyinstaller
+
+	instale o <strong>pyinstaller</strong> para transformar o programa como execultavel.
+	
+	```
+	pip3 install pyinstaller
+	```
+	
+
+- transformando o programa para um execultavel
+	
+	1. abra o arquivo "file-organizer".
+	2. execulte o comando " pyinstaller --onefile --noconsole File_Organizer.py ".
+	3. abra o aplicativo "startup applications" e adicione o programa no diretorio "./file-organizer/dist/File_Organizer"
+	4. reinicie sua máquina.
+	
+
+
+
+
  
  
