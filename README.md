@@ -42,7 +42,7 @@ Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://g
 
 - transformando o programa para um execultavel
 	
-	1. abra o arquivo "file-organizer".
+	1. abra o arquivo <code>file-organizer</code>.
 	2. execulte o comando:
 		```
 		pyinstaller --onefile --noconsole File_Organizer.py
