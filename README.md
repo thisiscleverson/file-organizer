@@ -65,6 +65,11 @@ Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://g
 		</p>
 	4. reinicie sua máquina.
 	
+		quando o programa for iniciado, vai aparecer uma notificação.
+		<p>
+			<img src="/src/assets/notify.jpg">
+		</p>
+	
 
 
 
