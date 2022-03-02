@@ -43,8 +43,14 @@ Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://g
 - transformando o programa para um execultavel
 	
 	1. abra o arquivo "file-organizer".
-	2. execulte o comando " pyinstaller --onefile --noconsole File_Organizer.py ".
-	3. abra o aplicativo "startup applications" e adicione o programa no diretorio "./file-organizer/dist/File_Organizer"
+	2. execulte o comando:
+		```
+		pyinstaller --onefile --noconsole File_Organizer.py
+		```
+	3. abra o aplicativo <strong>startup applications</strong> e adicione o programa no diretorio 
+		```
+		./file-organizer/dist/File_Organizer
+		```
 	4. reinicie sua máquina.
 	
 
