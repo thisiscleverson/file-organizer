@@ -58,7 +58,10 @@ Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://g
 		./file-organizer/dist/File_Organizer
 		```
 		<p>
-			<img src="/src/assets/.jpg">
+			<img src="/src/assets/startup-applications.jpg">
+		</p>
+		<p>
+			<img src="/src/assets/startup-applications-add.jpg">
 		</p>
 	4. reinicie sua máquina.
 	
