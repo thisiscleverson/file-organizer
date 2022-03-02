@@ -20,7 +20,7 @@ Foi desenvolvido com o intuito de organizar os arquivo abaixados, organizando pa
 
 Para poder execultar o programa na sua máquina é necessário ter instalado certas bibliotecas para um funcionamento correto.
 
-Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://github.com/thisiscleverson/installer-fileOrginazer.git">instalador.</a>
+Você pode usar o  <a href="https://github.com/thisiscleverson/installer-fileOrginazer.git">instalador.</a> Para fazer uma instalação automatica.
 
 -  instalando as bibliotecas do programa.
  ```
