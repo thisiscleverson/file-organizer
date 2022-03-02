@@ -53,7 +53,7 @@ Mas você pode poupar tempo instalando manualmente, usando o  <a href="https://g
 		<p>
 			<img src="/src/assets/terminal.jpg">
 		</p>
-	3. abra o aplicativo <strong>startup applications</strong> e adicione o programa no diretorio 
+	3. abra o aplicativo <strong>startup applications -em português- aplicativos de inicialização</strong> e adicione o programa no diretorio 
 		```
 		./file-organizer/dist/File_Organizer
 		```
