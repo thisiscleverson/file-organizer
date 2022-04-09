@@ -93,10 +93,10 @@ def main():
 
 #---------------------------------------------------------------->
 
-notifymeActivated()# avizar que o programa foi iniciado
-main() # ativar programa
+
 try:
-    pass
+    notifymeActivated()# avizar que o programa foi iniciado
+    main() # ativar programa
 except:
     notifymeErro()# avizar que ouve erro
 
