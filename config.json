@@ -1,33 +1,22 @@
-{
-    "Download Directory": "Downloads",
-    "Document Directory": "Documents",
-    "Video Directory":    "Videos",
-    "Music Directory":    "Music",
-    "Imagens Directory":  "Pictures",
-    "code Directory":     "code/Download_Programs",
+{   
+    "monitoringDirectory": "/home/cleverson/Desktop/observer_folder",
 
-
-    "imagens":    ["jpeg","jpg","img","svg","png","gif"],
-    "code":       ["py","cs","js","php","html","css","json","xml","java"],
-    "txt":        ["txt"],
-    "pdf":        ["pdf"],
-    "video":      ["mov","mp4","avi","flv"],
-    "documents":  ["docx","xlsx","doc","xls","odp","cop","pptx"],
-    "executable": ["deb"],
-    "zip":        ["zip","whl","iso","xz","gz"],
-    "3D":         ["stl","obj","FBX","3DS","igegs"],
-    "music":      ["mp3"],
-
+    "fileCategories":{
+        "imagens":    ["jpeg","jpg","img","svg","png","gif"],
+        "video":      ["mov","mp4","avi","flv"],
+        "documents":  ["docx","xlsx","doc","xls","odp","cop","pptx","txt"],
+        "compressed": ["zip","whl","iso","xz","gz"],
+        "executable": ["deb"],
+        "music":      ["mp3"],
+        "pdf":        ["pdf"]
+    },
     
-    "iconFoleder": "/file-organizer/icons/iconFolder.png",
-    "Activated_program": "/file-organizer/songs/Activated_program.mp3",
-    
-    "Erroicon": "/file-organizer/icons/Xicon.png",
-    "ErroSong": "/file-organizer/songs/ErroSong.mp3",
-    
-    "MoverFile": "/file-organizer/icons/folderMove.png",
-    "movefileSong": "/file-organizer/songs/movefile.mp3",
-
-    "TurnOnUnknown": false
-
+    "fileTypeDirectories": {
+        "imagens": "/Desktop/observer_folder/imagens",
+        "video": "/Desktop/observer_folder/video",
+        "documents": "/Desktop/observer_folder/documentos",
+        "executable": "/Desktop/observer_folder/executable",
+        "music": "/Desktop/observer_folder/audio",
+        "pdf": "/Desktop/observer_folder/documentos/pdf"
+    }
 }
