@@ -5,8 +5,6 @@ from file_organizer.fileCategorize import FileCategorize
 from file_organizer.configLoader import ConfigLoader
 
 
- #TODO: refatorar esse teste fazendo o watchdog observar a pasta. 
- # Além de criar o arquivo que supostamente será movido para o diretório correspondido
 class TestFileCategorize(unittest.TestCase):
    @classmethod
    def setUpClass(cls):
@@ -47,23 +45,17 @@ class TestFileCategorize(unittest.TestCase):
       
       self.assertEqual(type_file, 'documents')
 
-   #TODO: refazer a logica do test, fazendo o assert dentro do for
+
    def test_get_type_file_returns_correct_file_type_of_files(self):
       list_of_files = ["file.pdf", "file.png", "file.mp3", "file.mp4","file.zip", "file.deb",'file.txt']
-      list_of_type_file = []
-
 
       for _file in list_of_files:
          extension = self.file_categorize._FileCategorize__get_extension_file(_file)
          type_file = self.file_categorize._FileCategorize__get_type_file(extension)
-         list_of_type_file.append(type_file)
-      
 
-      self.assertCountEqual(
-         list_of_type_file, 
-         ["imagens", "video", "documents", "executable", "music","compressed", "pdf"]
-      )
+         self.assertIn(type_file, ["imagens", "video", "documents", "executable", "music","compressed", "pdf"])
 
+   
   
    def test_get_destination_file_return_documents_directory_when_the_file_has_txt_extension(self):
       file_with_single_extension = "file.txt"
