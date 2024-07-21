@@ -3,11 +3,12 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from handler import Handler
 from configLoader import ConfigLoader
+from pathlib import Path
 
 
+def run(directory:str, handler:Handler) -> None:
+   observer = Observer()
 
-
-def run(directory:str, observer:Observer, handler:Handler) -> None:
    observer.schedule(
       handler, 
       directory, 
@@ -26,16 +27,13 @@ def run(directory:str, observer:Observer, handler:Handler) -> None:
 
 
 
-observer  = Observer()
-handler   = Handler()
-
 config_loader = ConfigLoader('config.json')
+handler       = Handler(config_loader)
 
 if __name__=="__main__":
    directory = config_loader.json_data.get('monitoringDirectory')
 
    run(
-      directory=directory,
-      observer=observer,
-      handler=handler
+      directory=directory if directory != None else str(Path.home()) + '/Downloads',
+      handler=handler,
    )
