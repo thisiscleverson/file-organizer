@@ -5,8 +5,8 @@ from fileCategorize import FileCategorize
 
 
 class Handler(FileSystemEventHandler):
-   def __init__(self) -> None:
-      self.__file_categorize = FileCategorize()
+   def __init__(self, config_loader:dict) -> None:
+      self.__file_categorize = FileCategorize(config_loader)
 
 
    def on_created(self, event:FileSystemEvent) -> None:
