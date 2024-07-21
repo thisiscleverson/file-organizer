@@ -5,7 +5,6 @@ from pathlib import Path
 
 class FileCategorize:
 
-   #TODO: separar os métodos de leitura do json
    def __init__(self, json_data:dict) -> None:
       self.__json_data = json_data
       self.__user_home_directory = str(Path.home())
@@ -17,20 +16,20 @@ class FileCategorize:
 
       if extension == None or type_file == None: return
 
-      file_type_directories = self.__json_data.get('fileTypeDirectories')
-      file_directory        = file_type_directories.get(type_file)
-      destination_file      = self.__user_home_directory + file_directory
+      file_categories            = self.__json_data.get('fileCategories')
+      file_destination_directory = file_categories[type_file].get('destinationDirectory')
+      destination_file           = self.__user_home_directory + file_destination_directory
       
       return destination_file
 
 
    def __get_type_file(self, extension:str) -> str:
-      
-      types_file = self.__json_data.get('fileCategories')
+      file_categories = self.__json_data.get('fileCategories')
 
-      for _type in types_file:
-         if extension in types_file.get(_type):
-            return _type
+      for c in file_categories:
+         type_file = file_categories.get(c)
+         if extension in type_file.get('extensions'):
+            return c
       return 
 
 
