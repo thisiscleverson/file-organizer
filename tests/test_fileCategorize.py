@@ -72,5 +72,5 @@ class TestFileCategorize(unittest.TestCase):
 
       destination_file = self.file_categorize.get_destination_file(file_without_extension)
       
-      self.assertIsNone(destination_file)
+      self.assertIsNone(destination_file, correct_directory)
 
