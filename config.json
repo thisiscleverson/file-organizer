@@ -1,33 +1,34 @@
-{
-    "Download Directory": "Downloads",
-    "Document Directory": "Documents",
-    "Video Directory":    "Videos",
-    "Music Directory":    "Music",
-    "Imagens Directory":  "Pictures",
-    "code Directory":     "code/Download_Programs",
+{   
+   "monitoringDirectory": "/Downloads",
 
-
-    "imagens":    ["jpeg","jpg","img","svg","png","gif"],
-    "code":       ["py","cs","js","php","html","css","json","xml","java"],
-    "txt":        ["txt"],
-    "pdf":        ["pdf"],
-    "video":      ["mov","mp4","avi","flv"],
-    "documents":  ["docx","xlsx","doc","xls","odp","cop","pptx"],
-    "executable": ["deb"],
-    "zip":        ["zip","whl","iso","xz","gz"],
-    "3D":         ["stl","obj","FBX","3DS","igegs"],
-    "music":      ["mp3"],
-
-    
-    "iconFoleder": "/file-organizer/icons/iconFolder.png",
-    "Activated_program": "/file-organizer/songs/Activated_program.mp3",
-    
-    "Erroicon": "/file-organizer/icons/Xicon.png",
-    "ErroSong": "/file-organizer/songs/ErroSong.mp3",
-    
-    "MoverFile": "/file-organizer/icons/folderMove.png",
-    "movefileSong": "/file-organizer/songs/movefile.mp3",
-
-    "TurnOnUnknown": false
-
+    "fileCategories":{
+	"imagens": {
+	    "extensions": ["jpeg", "jpg", "img", "svg", "png", "gif"],
+	    "destinationDirectory": "/Pictures/Imagens"
+	},
+	"video": {
+	    "extensions": ["mov", "mp4", "avi", "flv"],
+	    "destinationDirectory": "/Videos/Videos"
+	},
+	"documents": {
+	    "extensions": ["docx", "xlsx", "doc", "xls", "odp", "pptx", "txt"],
+	    "destinationDirectory": "/Documents/Documentos"
+	},
+	"compressed": {
+	    "extensions": ["zip", "whl", "iso", "xz", "gz"],
+	    "destinationDirectory": "/Downloads/Zip"
+	},
+	"executable": {
+	    "extensions": ["deb", "exe"],
+	    "destinationDirectory": "/Downloads/Executaveis"
+	},
+	"music": {
+	    "extensions": ["mp3"],
+	    "destinationDirectory": "/Music/Audios"
+	},
+	"pdf": {
+	    "extensions": ["pdf"],
+	    "destinationDirectory": "/Documents/PDF"
+	}
+    }
 }
