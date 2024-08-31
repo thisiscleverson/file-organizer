@@ -1,12 +1,11 @@
-import json
-import shutil
 from pathlib import Path 
+from file_organizer.config_manager import ConfigManager
 
 
 class FileCategorize:
 
-   def __init__(self, json_data:dict) -> None:
-      self.__json_data = json_data
+   def __init__(self, json_manager:ConfigManager) -> None:
+      self.__json_manager = json_manager
       self.__user_home_directory = str(Path.home())
 
 
@@ -14,17 +13,19 @@ class FileCategorize:
       extension = self.__get_extension_file(file_path)
       type_file = self.__get_type_file(extension=extension)
 
-      if extension == None or type_file == None: return
+      if extension is None or type_file is None:
+         return
 
-      file_categories            = self.__json_data.get('fileCategories')
-      file_destination_directory = file_categories[type_file].get('destinationDirectory')
-      destination_file           = self.__user_home_directory + file_destination_directory
+      key_get_config = "fileCategories." + type_file + ".destinationDirectory"
+      
+      destination_directory = self.__json_manager.get_config(key_get_config)
+      destination_file      = self.__user_home_directory + destination_directory
       
       return destination_file
 
 
    def __get_type_file(self, extension:str) -> str:
-      file_categories = self.__json_data.get('fileCategories')
+      file_categories = self.__json_manager.get_config('fileCategories')
 
       for c in file_categories:
          type_file = file_categories.get(c)
@@ -35,8 +36,7 @@ class FileCategorize:
 
    def __get_extension_file(self, file_path:str) -> str:
       extensions_list = Path(file_path).suffixes
-      if extensions_list == []: return
+      if extensions_list == []:
+         return
 
       return extensions_list[-1].replace('.','')
-
-
