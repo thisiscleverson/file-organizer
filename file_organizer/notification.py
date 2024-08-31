@@ -17,13 +17,8 @@ class Notification(DesktopNotifier):
 
         self.__stop_event = asyncio.Event()
 
-
-    def __get_pwd(self) -> str:
-        return Path(__file__).resolve().parent
-
         
     async def __notification(self) -> None:
-        print(self.__get_pwd())
         await self.send(
             icon="assets/icons/move_file.png",
             title=self.__title,
