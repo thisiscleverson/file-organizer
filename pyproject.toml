@@ -6,14 +6,21 @@ authors = ["cleverson"]
 license = "MIT"
 readme = "README.md"
 
+
 [tool.poetry.dependencies]
 python = ">=3.11,<3.14"
 watchdog = "^4.0.1"
 pytest = "^8.2.2"
 desktop-notifier = "^5.0.1"
 ruff = "^0.6.2"
+taskipy = "^1.13.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.taskipy.tasks]
+lint = 'ruff check .; ruff check . --diff'
+run  = 'python -m file_organizer'
