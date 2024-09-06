@@ -24,3 +24,4 @@ build-backend = "poetry.core.masonry.api"
 [tool.taskipy.tasks]
 lint = 'ruff check .; ruff check . --diff'
 run  = 'python -m file_organizer'
+test = 'python -m unittest -v'
