@@ -100,7 +100,16 @@ Substitua "tipo_do_arquivo", "xxx", "yyy", "zzz", e "diretorio/de/destino" pelos
 - [x] Mover o arquivo para o diretório apropriado com base em sua categoria.
 
 ### Notificações
-- [ ] Mostrar notificações para informar o usuário sobre arquivos movidos.
-- [ ] Adicionar um ícone às notificações para maior clareza.
-- [ ] Incluir um botão nas notificações para abrir o local do arquivo movido.
-- [ ] Adicionar um som de efeito às notificações para alertas auditivos.
+- [x] Mostrar notificações para informar o usuário sobre arquivos movidos.
+- [x] Adicionar um ícone às notificações para maior clareza.
+- [x] Incluir um botão nas notificações para abrir o local do arquivo movido.
+- [x] Adicionar um som de efeito às notificações para alertas auditivos.
+- [x] Botões para abrir arquivo na pasta que foi movido e substituir arquivo existentes.
+
+## Instalador
+
+- [ ] Desenvolver um instalador que compile o projeto e adicione-o ao inicializador do sistema
+
+## Bugs
+
+- [ ] O sistema não funcionar no Windows por conta do sistema usar a barra invertida (\\).
