@@ -5,30 +5,79 @@ from watchdog.events import FileSystemEventHandler, FileSystemEvent
 from file_organizer.fileCategorize import FileCategorize
 from file_organizer.notification  import Notification
 
+from file_organizer.button_action import open_folder, replace_file
+
 
 class Handler(FileSystemEventHandler):
    def __init__(self, config_loader:dict) -> None:
       self.__file_categorize = FileCategorize(config_loader)
 
+      
    def on_created(self, event:FileSystemEvent) -> None:
       self.move_file(event.src_path)
 
-
+      
    def move_file(self, path:str) -> None:
       destination_file = self.__file_categorize.get_destination_file(path)
-
+      
       if not destination_file:
+         return
+
+      foldername       = self.__get_foldername(destination_file)
+      filename         = Path(path).name
+      
+      if self.__check_if_file_exists(path, destination_file, filename):
          return
 
       Path(destination_file).mkdir(parents=True, exist_ok=True)
 
-      filename = Path(path).name
-      
       try:
          shutil.move(path, destination_file)
          
       except Exception:
-         raise ValueError("It's not possible to move the file!")
+         notification = Notification(
+            icon="./assets/icons/error.png",
+            title="Erro",
+            message=f'Não foi povivel mover o arquivo "{filename}" para a pasta "{foldername}".'
+         )
+         
+         notification.show()
+         return
+         
 
-      notification = Notification("File Organizer", f'O arquivo "{filename}" foi movido para o diretorio: {destination_file}.')
+      notification = Notification(
+         icon="./assets/icons/movefile.png",
+         title="Arquivo movido",
+         message=f'O arquivo "{filename}" foi movido para a pasta "{foldername}".',
+      )
+      
+      notification.set_button(
+         title="Exibir o arquivo na pasta",
+         action=lambda:open_folder(destination_file), # não sei se é a melhor ideia fazer deste jeito, mas foi a ideia que eu tive.
+      )
+      
       notification.show()
+
+      
+   def __get_foldername(self, destination_file:str) -> str:
+      return destination_file.split("/")[-1]
+
+
+   def __check_if_file_exists(self, path:str, destination_file:str, filename:str) -> bool:
+      foldername = self.__get_foldername(destination_file)
+      file_src   = destination_file + "/" + filename
+      
+      if Path(file_src).exists():
+         notification = Notification(
+            icon="./assets/icons/icon.png",
+            title="Arquivo existente",
+            message=f'O arquivo "{filename}" já existe na pasta "{foldername}".'
+         )
+
+         notification.set_button(title="Substituir e exibir arquivo na pasta", action=lambda: replace_file(path, destination_file, filename))
+         notification.set_button(title="Ignorar", action=lambda: None)
+         
+         notification.show()
+         return True
+      
+      return False
