@@ -2,14 +2,14 @@ import os
 import unittest
 
 from file_organizer.fileCategorize import FileCategorize
-from file_organizer.configLoader import ConfigLoader
+from file_organizer.config_manager import ConfigManager
 
 
 class TestFileCategorize(unittest.TestCase):
    @classmethod
    def setUpClass(cls):
-      config_loader = ConfigLoader('config.json')
-      cls.file_categorize = FileCategorize(config_loader.json_data) 
+      config = ConfigManager('config.json')
+      cls.file_categorize = FileCategorize(config) 
 
 
    def test_get_extension_returns_txt_when_the_file_has_a_txt_extension(self):
@@ -59,7 +59,7 @@ class TestFileCategorize(unittest.TestCase):
   
    def test_get_destination_file_return_documents_directory_when_the_file_has_txt_extension(self):
       file_with_single_extension = "file.txt"
-      correct_directory = os.path.expanduser("~") + "/Desktop/observer_folder/documentos"
+      correct_directory = os.path.expanduser("~") + "/Documents/Documentos"
 
       destination_file = self.file_categorize.get_destination_file(file_with_single_extension)
       
@@ -68,7 +68,7 @@ class TestFileCategorize(unittest.TestCase):
 
    def test_get_destination_file_return_None_when_the_file_does_not_has_an_extension(self):
       file_without_extension = "file"
-      correct_directory = os.path.expanduser("~") + "/Desktop/observer_folder/documentos"
+      correct_directory = os.path.expanduser("~") + "/Documents/Documentos"
 
       destination_file = self.file_categorize.get_destination_file(file_without_extension)
       
