@@ -15,7 +15,7 @@ class ConfigManager:
          with open(self.__config_path, 'r') as file:
             self.__config_data = json.load(file)
       except json.JSONDecodeError:
-         print(f"Error decoding JSON from {self.config_path}.")
+         #print(f"Error decoding JSON from {self.config_path}.")
          self.__config_data = {}
 
          

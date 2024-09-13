@@ -17,7 +17,7 @@ def run(directory:str, handler:Handler) -> None:
    )
    observer.start()
 
-   print(f'\n* Watcher Running in {directory}/\n')
+   #print(f'\n* Watcher Running in {directory}/\n')
 
    try:
       while True:
