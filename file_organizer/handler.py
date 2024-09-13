@@ -1,11 +1,12 @@
 import shutil
-from pathlib import Path 
+from pathlib import Path
+from functools import partial
 from watchdog.events import FileSystemEventHandler, FileSystemEvent
 
 from file_organizer.fileCategorize import FileCategorize
 from file_organizer.notification  import Notification
-
 from file_organizer.button_action import open_folder, replace_file
+from file_organizer.icon_path import IconsPath
 
 
 class Handler(FileSystemEventHandler):
@@ -36,24 +37,24 @@ class Handler(FileSystemEventHandler):
          
       except Exception:
          notification = Notification(
-            icon="./assets/icons/error.png",
+            icon=IconsPath.ERROR.value,
             title="Erro",
             message=f'Não foi povivel mover o arquivo "{filename}" para a pasta "{foldername}".'
          )
          
          notification.show()
          return
-         
+
 
       notification = Notification(
-         icon="./assets/icons/movefile.png",
+         icon=IconsPath.MOVED.value,
          title="Arquivo movido",
          message=f'O arquivo "{filename}" foi movido para a pasta "{foldername}".',
       )
       
       notification.set_button(
          title="Exibir o arquivo na pasta",
-         action=lambda:open_folder(destination_file), # não sei se é a melhor ideia fazer deste jeito, mas foi a ideia que eu tive.
+         action=partial(open_folder, destination_file),
       )
       
       notification.show()
@@ -69,13 +70,13 @@ class Handler(FileSystemEventHandler):
       
       if Path(file_src).exists():
          notification = Notification(
-            icon="./assets/icons/icon.png",
+            icon=IconsPath.ICON.value,
             title="Arquivo existente",
             message=f'O arquivo "{filename}" já existe na pasta "{foldername}".'
          )
 
-         notification.set_button(title="Substituir e exibir arquivo na pasta", action=lambda: replace_file(path, destination_file, filename))
-         notification.set_button(title="Ignorar", action=lambda: None)
+         notification.set_button(title="Substituir e exibir arquivo na pasta", action=partial(replace_file, path, destination_file, filename))
+         notification.set_button(title="Ignorar")
          
          notification.show()
          return True
