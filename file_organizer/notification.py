@@ -2,7 +2,7 @@ import asyncio
 from pathlib import Path
 from desktop_notifier import DesktopNotifier, Button, Urgency, Icon, Sound
 from typing import Callable
-
+from file_organizer.icon_path import IconsPath
 
 def get_absolute_path(path:str) -> str | None:
     absolute_path = Path(path).absolute()
@@ -18,7 +18,7 @@ class Notification(DesktopNotifier):
         super().__init__(
             app_name="File Organizer",
             notification_limit=10,
-            app_icon=Icon(path=get_absolute_path("./assets/icons/icon.png"))
+            app_icon=Icon(path=get_absolute_path(IconsPath.ICON.value))
         )
 
         self.__icon       = icon
@@ -28,11 +28,14 @@ class Notification(DesktopNotifier):
         self.__stop_event = asyncio.Event()
 
         
-    def set_button(self, title:str, action:Callable) -> None:        
+    def set_button(self, title:str, action:Callable=None) -> None:        
         self.__button.append(
             Button(
                 title=title,
-                on_pressed=lambda: [action(), self.__stop_event.set()],
+                on_pressed=lambda: [
+                    action() if action else None,
+                    self.__stop_event.set()
+                ],
             )
         )
 
