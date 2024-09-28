@@ -6,7 +6,7 @@ from watchdog.events import FileSystemEventHandler, FileSystemEvent
 from file_organizer.fileCategorize import FileCategorize
 from file_organizer.notification  import Notification
 from file_organizer.button_action import open_folder, replace_file
-from file_organizer.icon_path import IconsPath
+from file_organizer.icons_path import IconsPath
 
 
 class Handler(FileSystemEventHandler):
