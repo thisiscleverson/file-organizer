@@ -4,6 +4,36 @@
 
 [**Vídeo demostrativo**](https://imgur.com/1BWkeLL)
 
+## Como instalar?
+
+Para instalar o **File Organizer**, certifique-se de ter o **Python 3.11** ou superior instalado. Em seguida, execute o comando abaixo:
+```bash
+./install.sh
+```
+
+> ⚠️ Este instalador só funciona em ambiente Linux!
+
+Esse script irar criar um pasta `.file-organizer` na home do sistema com a seguinte estrutura:
+
+```
+.file-organizer
+├── assets
+│   ├── icons
+│   │   ├── error.png
+│   │   ├── icon.png
+│   │   └── moved.png
+│   └── sounds
+│       └── sound.mp3
+├── config
+│   └── config.json
+└── dist
+    └── File Organizer
+```
+
+Você pode configurar seus filtros no arquivo`config/config.json`. Veja mais como configurar os filtros na sessão [Configurando os diretórios](#configurando-os-diretórios).
+
+O script adicionará o **File Organizer** ao `autostart` do sistema operacional, permitindo que ele seja iniciado automaticamente junto com o sistema.
+
 ## Como executar?
 
 Para poder executar o projeto é recomendado que você tenha o `Poetry` instalado e o `Python` com a versão `3.11` ou superior.
@@ -87,29 +117,3 @@ Você pode adicionar seus próprios filtros de arquivos utilizando a seguinte es
 ```
 
 Substitua "tipo_do_arquivo", "xxx", "yyy", "zzz", e "diretorio/de/destino" pelos valores desejados para criar novos filtros personalizados.
-
-## To-Do List
-
-### Observação de Arquivos
-- [x] Implementar a funcionalidade de observação de arquivos no diretório especificado.
-
-### Verificação da Extensão do Arquivo
-- [x] Verificar a extensão do arquivo para determinar sua categoria.
-
-### Movimento de Arquivo
-- [x] Mover o arquivo para o diretório apropriado com base em sua categoria.
-
-### Notificações
-- [x] Mostrar notificações para informar o usuário sobre arquivos movidos.
-- [x] Adicionar um ícone às notificações para maior clareza.
-- [x] Incluir um botão nas notificações para abrir o local do arquivo movido.
-- [x] Adicionar um som de efeito às notificações para alertas auditivos.
-- [x] Botões para abrir arquivo na pasta que foi movido e substituir arquivo existentes.
-
-## Instalador
-
-- [ ] Desenvolver um instalador que compile o projeto e adicione-o ao inicializador do sistema
-
-## Bugs
-
-- [ ] O sistema não funcionar no Windows por conta do sistema usar a barra invertida (\\).
