@@ -2,3 +2,7 @@ __pycache__/
 .pytest_cache
 .ruff_cache
 .python-version
+File Organizer.spec
+dist/
+build/
+.venv/
