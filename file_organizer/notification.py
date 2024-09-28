@@ -1,14 +1,20 @@
 import asyncio
+import sys
 from pathlib import Path
 from desktop_notifier import DesktopNotifier, Button, Urgency, Icon, Sound
 from typing import Callable
-from file_organizer.icon_path import IconsPath
+from file_organizer.icons_path import IconsPath
 
-def get_absolute_path(path:str) -> str | None:
-    absolute_path = Path(path).absolute()
+def get_assets_path(path:str) -> str | None:
+    if getattr(sys, 'frozen', False):
+        asset_path  = Path.home() / '.file-organizer'
+        assets_dir  = Path(asset_path)
+        assets_file = assets_dir / path
+    else:
+        assets_file = Path('./' + path).absolute()
 
-    if absolute_path.exists():
-        return absolute_path
+    if assets_file.exists():
+        return assets_file
     return None
 
 
@@ -18,7 +24,7 @@ class Notification(DesktopNotifier):
         super().__init__(
             app_name="File Organizer",
             notification_limit=10,
-            app_icon=Icon(path=get_absolute_path(IconsPath.ICON.value))
+            app_icon=Icon(path=get_assets_path(IconsPath.ICON.value))
         )
 
         self.__icon       = icon
@@ -42,14 +48,14 @@ class Notification(DesktopNotifier):
         
     async def __notification(self) -> None:        
         await self.send(
-            icon = Icon(path=get_absolute_path(self.__icon)),
+            icon = Icon(path=get_assets_path(self.__icon)),
             title=self.__title,
             message=self.__message,
             urgency=Urgency.Critical,
             buttons=self.__button,
             on_clicked=lambda: self.__stop_event.set(),
             on_dismissed=lambda: self.__stop_event.set(),
-            sound=Sound(name=get_absolute_path("./assets/sounds/sound.mp3")),
+            sound=Sound(name=get_assets_path("assets/sounds/sound.mp3")),
         )
         
         await self.__stop_event.wait()
