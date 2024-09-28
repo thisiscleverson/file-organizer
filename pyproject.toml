@@ -14,6 +14,8 @@ pytest = "^8.2.2"
 desktop-notifier = "^5.0.1"
 ruff = "^0.6.2"
 taskipy = "^1.13.0"
+pyinstaller = "^6.10.0"
+poetry-auto-export = "^0.3.0"
 
 
 [build-system]
@@ -25,3 +27,9 @@ build-backend = "poetry.core.masonry.api"
 lint = 'ruff check .; ruff check . --diff'
 run  = 'python -m file_organizer'
 test = 'python -m unittest -v'
+
+
+[tool.poetry-auto-export]
+output = "requirements.txt"
+without_hashes = true
+without = ["dev"]
