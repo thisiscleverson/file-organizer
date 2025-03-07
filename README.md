@@ -44,13 +44,13 @@ para configurar todo o ambiente basta executar:
 poetry install
 ```
 
-você pode instalar usando o pip com o seguinte comando:
+você pode usar o pip para instalar as dependências:
 
 ```bash
-pip install watchdog==4.0.1 pytest==8.2.2 desktop-notifier==5.0.1 ruff==0.6.2 taskipy==1.13.0
+pip install .
 ```
 
-> Se for usar o pip, recomendo você usar um ambiente virtual.
+> Se for usar o pip, recomendo você usar um ambiente virtual para instalar as dependências.
 
 para executar o projeto, use o seguinte comando:
 
