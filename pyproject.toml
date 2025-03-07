@@ -27,9 +27,3 @@ build-backend = "poetry.core.masonry.api"
 lint = 'ruff check .; ruff check . --diff'
 run  = 'python -m file_organizer'
 test = 'python -m unittest -v'
-
-
-[tool.poetry-auto-export]
-output = "requirements.txt"
-without_hashes = true
-without = ["dev"]
