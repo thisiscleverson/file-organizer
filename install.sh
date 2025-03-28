@@ -12,6 +12,7 @@ CONFIG_DIR="$HOME/.file-organizer/config"
 AUTOSTART_DIR="$HOME/.config/autostart"
 DESKTOP_FILE="$HOME/.config/autostart/$FILENAME.desktop"
 ICON_FILE="$HOME/.file-organizer/assets/icons/icon.png"
+PYTHON_VERSION=$(python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
 
 # 2. Criar o ambiente virtual
 if [ ! -d "$VENV_DIR" ]; then
@@ -23,10 +24,10 @@ fi
 source $VENV_DIR/bin/activate
 
 echo "📦 Instalando dependências com pip..."
-pip install -r requirements.txt
+pip install .
 
 # 4. Verificar se o pacote desktop_notifier foi instalado corretamente
-DESKTOP_NOTIFIER_RESOURCES_PATH="$POETRY_VENV_PATH/lib/python3.12/site-packages/desktop_notifier/resources"
+DESKTOP_NOTIFIER_RESOURCES_PATH="$VENV_DIR/lib64/python$PYTHON_VERSION/site-packages/desktop_notifier/resources"
 if [ ! -d "$DESKTOP_NOTIFIER_RESOURCES_PATH" ]; then
     echo "❌ Erro: Caminho para desktop_notifier/resources não encontrado!"
     exit 1
