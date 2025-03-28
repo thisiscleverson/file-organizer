@@ -1,4 +1,5 @@
 import shutil
+import time
 from pathlib import Path
 from functools import partial
 from watchdog.events import FileSystemEventHandler, FileSystemEvent
@@ -11,23 +12,35 @@ from file_organizer.icons_path import IconsPath
 
 class Handler(FileSystemEventHandler):
    def __init__(self, config_loader:dict) -> None:
-      self.__file_categorize = FileCategorize(config_loader)
+      self.file_categorize = FileCategorize(config_loader)
+      self.start_size = -1
+      self.src_path = ''
+
+
+   def on_created(self, event:FileSystemEvent) -> None:
+      self.src_path = event.src_path
 
       
-   def on_created(self, event:FileSystemEvent) -> None:
-      self.move_file(event.src_path)
+   def on_modified(self, event:FileSystemEvent) -> None:
+      src_path = Path(event.src_path)
+
+      download_competed = self.check_download_has_completed(src_path)
+      
+      if download_competed == True  and self.src_path != '':
+         self.move_file(self.src_path)
+         self.src_path = ''
 
       
    def move_file(self, path:str) -> None:
-      destination_file = self.__file_categorize.get_destination_file(path)
+      destination_file = self.file_categorize.get_destination_file(path)
       
       if not destination_file:
          return
 
-      foldername       = self.__get_foldername(destination_file)
-      filename         = Path(path).name
+      foldername = self.get_foldername(destination_file)
+      filename = Path(path).name
       
-      if self.__check_if_file_exists(path, destination_file, filename):
+      if self.check_if_file_exists(path, destination_file, filename):
          return
 
       Path(destination_file).mkdir(parents=True, exist_ok=True)
@@ -59,13 +72,28 @@ class Handler(FileSystemEventHandler):
       
       notification.show()
 
+   def check_download_has_completed(self, src_path:Path) -> bool:
+
+      if src_path.is_dir():
+         return False
+
+      file_size = src_path.stat().st_size if src_path.exists() else 0
+
+      if file_size > self.start_size:
+         self.start_size = file_size
+         time.sleep(2)
+         return False
+   
+      self.start_size = -1
+      return True
+
       
-   def __get_foldername(self, destination_file:str) -> str:
+   def get_foldername(self, destination_file:str) -> str:
       return destination_file.split("/")[-1]
 
 
-   def __check_if_file_exists(self, path:str, destination_file:str, filename:str) -> bool:
-      foldername = self.__get_foldername(destination_file)
+   def check_if_file_exists(self, path:str, destination_file:str, filename:str) -> bool:
+      foldername = self.get_foldername(destination_file)
       file_src   = destination_file + "/" + filename
       
       if Path(file_src).exists():
